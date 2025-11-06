@@ -1,5 +1,7 @@
 # A multi-agentic framework for real-time, autonomous freeform metasurface design
 
+**中文文档**: [README_CN.md](README_CN.md) | English
+
 **Publication out now in** [Science Advances](https://www.science.org/doi/10.1126/sciadv.adx8006)
 
 This repository hosts the resources accompanying our study, **[A multi-agentic framework for real-time, autonomous freeform metasurface design](https://www.science.org/doi/10.1126/sciadv.adx8006)**.

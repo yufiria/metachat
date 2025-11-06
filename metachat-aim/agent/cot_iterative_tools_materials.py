@@ -1,3 +1,10 @@
+"""
+完整功能迭代智能体模块
+
+该文件实现了功能最完整的 AIM 智能体，集成了所有可用工具。
+这是论文中评估使用的主要智能体配置。
+"""
+
 from typing import Dict, Any, List, Optional
 from .base import Agent
 from tools.solvers.scientific_compute import ScientificCompute
@@ -10,7 +17,21 @@ from datetime import datetime
 import uuid
 
 class IterativeAgentToolsMaterials(Agent):
-    """Simple one-shot agent that solves problems in a single model call."""
+    """
+    完整功能的迭代智能体
+    
+    集成了所有可用工具的完整 AIM 智能体实现。
+    这是最强大的配置，在 Stanford 纳米光子学基准上表现最佳。
+    
+    支持的功能：
+    - 内部独白和迭代推理（来自 IterativeAgent）
+    - NumPy/SciPy 科学计算（ScientificCompute 工具）
+    - SymPy 符号数学（SymbolicSolver 工具）
+    - 材料数据库查询（MaterialDatabaseCLI）
+    - 神经网络设计 API（NeuralDesignAPI 工具）
+    
+    这个配置在论文的评估中使用，展示了多工具协作的能力。
+    """
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

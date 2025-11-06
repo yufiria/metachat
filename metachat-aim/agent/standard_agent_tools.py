@@ -1,3 +1,10 @@
+"""
+标准智能体（带全部工具）模块
+
+该文件实现了带全部工具的单次调用智能体。
+相比迭代版本速度更快，但不支持多轮推理。
+"""
+
 from typing import Dict, Any, List, Optional
 from .base import Agent
 from tools.solvers.scientific_compute import ScientificCompute
@@ -7,7 +14,20 @@ from tools.material_db.query_materials import MaterialDatabaseCLI
 from datetime import datetime
 
 class StandardAgentToolsMaterials(Agent):
-    """Simple one-shot agent that solves problems in a single model call."""
+    """
+    带全部工具的标准智能体
+    
+    单次调用智能体的完整配置，集成所有可用工具。
+    
+    支持的功能：
+    - 单次模型调用（来自 StandardAgent）
+    - NumPy/SciPy 科学计算（ScientificCompute 工具）
+    - SymPy 符号数学（SymbolicSolver 工具）
+    - 材料数据库查询（MaterialDatabaseCLI）
+    - 神经网络设计 API（NeuralDesignAPI 工具）
+    
+    适用于简单问题的快速求解，作为迭代智能体的对照基线。
+    """
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
