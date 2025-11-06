@@ -1,21 +1,32 @@
+"""
+物理常数模块
+
+该文件定义了电磁场求解器使用的物理常数和网格参数。
+包括光速、介电常数、磁导率等基本物理量，以及数值模拟的网格设置。
+"""
+
 import numpy as np
 
-# Constants for field solver
+# 基底材料的折射率
 n_sub = 1.44
 
-min_N_bars = 3
-max_N_bars = 10
+# 纳米柱数量的限制范围
+min_N_bars = 3   # 最少纳米柱数
+max_N_bars = 10  # 最多纳米柱数
 
-eps_0 = 8.85418782e-12
-mu_0 = 1.25663706e-6
-C_0 = 1 / np.sqrt(eps_0 * mu_0)  # speed of light in vacuum
+# 物理常数
+eps_0 = 8.85418782e-12  # 真空介电常数 (F/m)
+mu_0 = 1.25663706e-6    # 真空磁导率 (H/m)
+C_0 = 1 / np.sqrt(eps_0 * mu_0)  # 真空中的光速 (m/s)
 
+# 网格步长（纳米）
 dL = 10
 
-Nx = 500
-Ny = 350
-pml_x = 60
-pml_y = 60
+# 网格尺寸参数
+Nx = 500  # x方向网格点数
+Ny = 350  # y方向网格点数
+pml_x = 60  # x方向的完美匹配层(PML)厚度
+pml_y = 60  # y方向的完美匹配层(PML)厚度
 
-
-nn_padding = 3
+# 神经网络填充参数
+nn_padding = 3  # 神经网络输入的填充大小

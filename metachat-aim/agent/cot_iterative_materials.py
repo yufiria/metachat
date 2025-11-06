@@ -1,3 +1,10 @@
+"""
+迭代智能体（带材料数据库）模块
+
+该文件实现了带材料数据库支持的 AIM 智能体。
+此智能体可以查询光学材料数据库，获取材料的折射率等光学属性。
+"""
+
 from typing import Dict, Any, List, Optional
 from .base import Agent
 from tools.design.api import NeuralDesignAPI
@@ -8,7 +15,17 @@ from datetime import datetime
 import uuid
 
 class IterativeAgentMaterials(Agent):
-    """Simple one-shot agent that solves problems in a single model call."""
+    """
+    带材料数据库的迭代智能体
+    
+    扩展基础 AIM 智能体，增加了材料数据库查询功能。
+    支持：
+    - 内部独白和迭代推理（来自 IterativeAgent）
+    - 材料数据库查询（MaterialDatabaseCLI 工具）
+    - 神经网络设计 API（NeuralDesignAPI 工具）
+    
+    材料数据库包含从文献爬取的光学材料属性数据。
+    """
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

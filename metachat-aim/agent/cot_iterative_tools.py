@@ -1,3 +1,10 @@
+"""
+迭代智能体（带工具）模块
+
+该文件实现了增强版的 AIM 智能体，在基础迭代功能上增加了科学计算工具。
+相比基础版本，此智能体可以使用 NumPy、SciPy 和 SymPy 进行计算。
+"""
+
 from typing import Dict, Any, List, Optional
 from .base import Agent
 from tools.solvers.scientific_compute import ScientificCompute
@@ -9,7 +16,16 @@ from datetime import datetime
 import uuid
 
 class IterativeAgentTools(Agent):
-    """Simple one-shot agent that solves problems in a single model call."""
+    """
+    带工具的迭代智能体
+    
+    扩展基础 AIM 智能体，增加了科学计算和符号计算工具。
+    支持：
+    - 内部独白和迭代推理（来自 IterativeAgent）
+    - NumPy/SciPy 科学计算（ScientificCompute 工具）
+    - SymPy 符号数学（SymbolicSolver 工具）
+    - 神经网络设计 API（NeuralDesignAPI 工具）
+    """
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
